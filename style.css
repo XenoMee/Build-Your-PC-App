@@ -98,10 +98,6 @@ body {
   justify-items: center;
 }
 
-.desktop-img {
-  margin-inline: auto;
-}
-
 .component-name {
   padding: 0.5rem 1rem;
   border: none;

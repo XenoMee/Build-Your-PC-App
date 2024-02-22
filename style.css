@@ -101,6 +101,10 @@ body {
   justify-items: center;
 }
 
+.desktop-img {
+  order: -1;
+}
+
 .component-name {
   padding: 0.5rem 1rem;
   border: none;

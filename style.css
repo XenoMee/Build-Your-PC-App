@@ -89,7 +89,6 @@ body {
 }
 
 /* Layout */
-
 .container {
   max-width: 30rem;
   background-color: var(--clr-primary-900);
@@ -107,6 +106,7 @@ body {
 }
 
 .component-name {
+  width: 100%;
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 100vh;

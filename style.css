@@ -14,7 +14,10 @@
 
 :root {
   /* Colors */
-  /* --clr-primary-900: #080808; */
+  --clr-primary-900: #080808;
+
+  /* Font Family */
+  /* --font-family-base: "Play", sans-serif; */
 }
 
 html {
@@ -71,5 +74,6 @@ h6 {
 
 /* body {
   background-color: var(--clr-primary-900);
+  color: #fff;
   min-height: 100svh;
 } */

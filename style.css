@@ -87,6 +87,13 @@ body {
   font-weight: var(--fw-bold);
 }
 
+/* Layout */
+
+.container {
+  /* max-width: 30rem; */
+  text-align: center;
+}
+
 .desktop-img {
   margin-inline: auto;
 }

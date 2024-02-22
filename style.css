@@ -18,6 +18,10 @@
 
   /* Font Family */
   --font-family-base: "Play", sans-serif;
+
+  /* Font weight */
+  --fw-regular: 400;
+  --fw-bold: 700;
 }
 
 html {

@@ -82,8 +82,11 @@ h6 {
   overflow-wrap: break-word;
 }
 
-/* body {
-  background-color: var(--clr-primary-900);
-  color: #fff;
+body {
+  /* background-color: var(--clr-primary-900);
+  color: #fff; */
   min-height: 100svh;
-} */
+
+  /* display: grid;
+  place-content: center; */
+}

@@ -70,7 +70,7 @@ h6 {
 
 /* General */
 body {
-  background-color: var(--clr-primary-900);
+  /* background-image: ; */
   color: #fff;
   min-height: 100svh;
   font-family: var(--font-family-base);
@@ -91,7 +91,9 @@ body {
 
 .container {
   max-width: 30rem;
+  background-color: var(--clr-primary-900);
   text-align: center;
+  /* border-radius: 1rem; */
 }
 
 .intro {
@@ -115,6 +117,13 @@ body {
   cursor: pointer;
 }
 
+/* Utilty classes*/
+.grid-flow {
+  display: grid;
+  gap: 1rem;
+}
+
+/* Animations */
 @keyframes bg-animation {
   0% {
     background-position: 0% 50%;
@@ -127,10 +136,4 @@ body {
   100% {
     background-position: 0% 50%;
   }
-}
-
-/* Utilty classes*/
-.grid-flow {
-  display: grid;
-  gap: 1rem;
 }

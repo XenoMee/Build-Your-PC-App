@@ -103,3 +103,9 @@ body {
   border: none;
   border-radius: 100vh;
 }
+
+/* Utilty classes*/
+.grid-flow {
+  display: grid;
+  gap: 1rem;
+}

@@ -115,7 +115,7 @@ body {
   cursor: pointer;
 }
 
-/* @keyframes bg-animation {
+@keyframes bg-animation {
   0% {
     background-position: 0% 50%;
   }
@@ -127,7 +127,7 @@ body {
   100% {
     background-position: 0% 50%;
   }
-} */
+}
 
 /* Utilty classes*/
 .grid-flow {

@@ -1,17 +1,3 @@
-@font-face {
-  font-family: "Play";
-  src: url("play-bold-webfont.woff2") format("woff2"),
-    url("play-bold-webfont.woff") format("woff");
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: "Play";
-  src: url("play-regular-webfont.woff2") format("woff2"),
-    url("play-regular-webfont.woff") format("woff");
-  font-weight: 400;
-}
-
 :root {
   /* Colors */
   --clr-primary-900: #080808;

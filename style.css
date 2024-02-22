@@ -14,6 +14,11 @@
 
 :root {
   /* Colors */
+  /* --clr-primary-900: #080808; */
+}
+
+html {
+  color-scheme: dark light;
 }
 
 /*
@@ -65,7 +70,6 @@ h6 {
 }
 
 /* body {
-  background-color: #072541;
-  color: ;
+  background-color: var(--clr-primary-900);
   min-height: 100svh;
 } */

@@ -90,7 +90,7 @@ body {
 /* Layout */
 
 .container {
-  /* max-width: 30rem; */
+  max-width: 30rem;
   text-align: center;
 }
 

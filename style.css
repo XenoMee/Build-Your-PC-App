@@ -82,6 +82,7 @@ h6 {
   overflow-wrap: break-word;
 }
 
+/* General */
 body {
   background-color: var(--clr-primary-900);
   color: #fff;
@@ -93,3 +94,5 @@ body {
   display: grid;
   place-content: center;
 }
+
+/* Typography */

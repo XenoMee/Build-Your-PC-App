@@ -13,6 +13,7 @@
 }
 
 :root {
+  /* Colors */
 }
 
 /*
@@ -62,3 +63,9 @@ h5,
 h6 {
   overflow-wrap: break-word;
 }
+
+/* body {
+  background-color: #072541;
+  color: ;
+  min-height: 100svh;
+} */

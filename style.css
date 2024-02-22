@@ -70,7 +70,8 @@ h6 {
 
 /* General */
 body {
-  /* background-image: ; */
+  background-image: linear-gradient(to left, #1d2671, #c31432);
+  /* background-color: #0f3460; */
   color: #fff;
   min-height: 100svh;
   font-family: var(--font-family-base);

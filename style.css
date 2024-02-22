@@ -86,6 +86,10 @@ body {
 .app-title {
   font-size: var(--fs-700);
   font-weight: var(--fw-bold);
+  background-image: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 /* Layout */

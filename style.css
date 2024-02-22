@@ -83,8 +83,8 @@ h6 {
 }
 
 body {
-  /* background-color: var(--clr-primary-900);
-  color: #fff; */
+  background-color: var(--clr-primary-900);
+  color: #fff;
   min-height: 100svh;
 
   /* display: grid;

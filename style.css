@@ -112,7 +112,7 @@ body {
   order: -1;
 }
 
-.component-type {
+input[type="text"] {
   width: 100%;
   padding: 0.5rem 1rem;
   border: none;

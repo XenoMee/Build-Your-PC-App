@@ -216,7 +216,7 @@ input[type="text"] {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 42em) {
   .container {
     grid-template-columns: 1fr 1fr;
   }

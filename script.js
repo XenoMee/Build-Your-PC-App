@@ -28,7 +28,7 @@ addComponentBtnEl.addEventListener("click", function () {
 
 onValue(componentsListInDB, function (snapshot) {
   let componentsArray = Object.values(snapshot.val());
-  //   clearComponentsListEl();
+  clearComponentsListEl();
 
   for (let i = 0; i < componentsArray.length; i++) {
     let currentComponent = componentsArray[i];
@@ -44,6 +44,6 @@ function clearInputValue() {
   inputFieldEl.value = "";
 }
 
-// function clearComponentsListEl() {
-//   componentsListEl.innerHTML = "";
-// }
+function clearComponentsListEl() {
+  componentsListEl.innerHTML = "";
+}

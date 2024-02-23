@@ -16,7 +16,7 @@ const app = initializeApp(appSettings);
 const database = getDatabase(app);
 const componentsListInDB = ref(database, "ComponentsList");
 
-const inputFieldEl = document.getElementById("component-type");
+const componentTypeEl = document.getElementById("component-type");
 const componentNameEl = document.getElementById("component-name");
 const addComponentBtnEl = document.getElementById("add-btn");
 const componentsListEl = document.querySelector(".components-list");
@@ -25,7 +25,7 @@ const quantityEl = document.querySelector(".quantity");
 const quantityMinusBtn = document.querySelector(".btn--minus");
 const quantitPlusBtn = document.querySelector(".btn--plus");
 addComponentBtnEl.addEventListener("click", function () {
-  let inputValue = inputFieldEl.value;
+  let inputValue = componentTypeEl.value;
   if (inputValue !== "") {
     push(componentsListInDB, inputValue);
     clearInputValue();
@@ -67,7 +67,7 @@ function appendItemtoComponentsListEl(item) {
 }
 
 function clearInputValue() {
-  inputFieldEl.value = "";
+  componentTypeEl.value = "";
 }
 
 function clearComponentsListEl() {

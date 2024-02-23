@@ -14,7 +14,7 @@ const appSettings = {
 
 const app = initializeApp(appSettings);
 const database = getDatabase(app);
-const componentsListInDB = ref(database, "ComponentsList");
+const componentListInDB = ref(database, "ComponentsTypeList");
 
 const componentTypeEl = document.getElementById("component-type");
 const componentNameEl = document.getElementById("component-name");
@@ -24,15 +24,23 @@ const componentsTitleEl = document.querySelector(".components-title");
 const quantityEl = document.querySelector(".quantity");
 const quantityMinusBtn = document.querySelector(".btn--minus");
 const quantitPlusBtn = document.querySelector(".btn--plus");
+
+const ComponentObject = {
+  type: "",
+  name: "",
+  quantity: "",
+};
+
 addComponentBtnEl.addEventListener("click", function () {
-  let inputValue = componentTypeEl.value;
-  if (inputValue !== "") {
-    push(componentsListInDB, inputValue);
-    clearInputValue();
+  let componentTypeValue = componentTypeEl.value;
+  let componentNameValue = componentNameEl.value;
+  if (componentTypeValue !== "" && componentNameValue !== "") {
+    push(componentListInDB, componentTypeValue);
+    resetInputValue();
   } else return;
 });
 
-onValue(componentsListInDB, function (snapshot) {
+onValue(componentListInDB, function (snapshot) {
   if (snapshot.exists()) {
     let componentsArray = Object.entries(snapshot.val());
     clearComponentsListEl();
@@ -52,21 +60,23 @@ function appendItemtoComponentsListEl(item) {
   let itemID = item[0];
   let itemValue = item[1];
 
-  let newEl = document.createElement("li");
-  newEl.textContent = itemValue;
+  let newLiEl = createNewElement("li");
+  newLiEl.textContent = itemValue;
 
-  newEl.addEventListener("click", function () {
-    let exactLocationOfItemInDB = ref(database, `ComponentsList/${itemID}`);
+  newLiEl.addEventListener("click", function () {
+    let exactLocationOfItemInDB = ref(database, `ComponentsTypeList/${itemID}`);
 
     remove(exactLocationOfItemInDB);
   });
 
-  componentsListEl.append(newEl);
+  componentsListEl.append(newLiEl);
 }
 
-function clearInputValue() {
+const resetInputValue = function () {
   componentTypeEl.value = "";
-}
+  componentNameEl.value = "";
+  quantityEl.textContent = 0;
+};
 
 function clearComponentsListEl() {
   componentsListEl.innerHTML = "";
@@ -75,4 +85,8 @@ function clearComponentsListEl() {
 function displayComponentListTitle() {
   componentsTitleEl.style.display = "block";
   componentsTitleEl.textContent = "Tech Specs";
+}
+
+function createNewElement(element) {
+  return document.createElement(element);
 }

@@ -3,6 +3,7 @@ import {
   getDatabase,
   ref,
   push,
+  onValue,
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
 
 const appSettings = {
@@ -19,11 +20,15 @@ const addComponentBtnEl = document.getElementById("add-btn");
 const componentsListEl = document.querySelector(".components-list");
 addComponentBtnEl.addEventListener("click", function () {
   let inputValue = inputFieldEl.value;
-
-  push(componentsListInDB, inputValue);
-  appendItemtoComponentsListEl(inputValue);
-  clearInputValue();
+  if (inputValue !== "") push(componentsListInDB, inputValue);
+  else return;
 });
+
+// onValue(componentsListInDB, function (snapshot) {
+//   let componentValue = Object.values(snapshot.val());
+//   appendItemtoComponentsListEl(componentValue);
+//   clearInputValue();
+// });
 
 function appendItemtoComponentsListEl(item) {
   componentsListEl.innerHTML += `<li>${item}</li>`;

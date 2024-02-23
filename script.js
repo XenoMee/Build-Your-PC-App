@@ -20,15 +20,21 @@ const addComponentBtnEl = document.getElementById("add-btn");
 const componentsListEl = document.querySelector(".components-list");
 addComponentBtnEl.addEventListener("click", function () {
   let inputValue = inputFieldEl.value;
-  if (inputValue !== "") push(componentsListInDB, inputValue);
-  else return;
+  if (inputValue !== "") {
+    push(componentsListInDB, inputValue);
+    clearInputValue();
+  } else return;
 });
 
-// onValue(componentsListInDB, function (snapshot) {
-//   let componentValue = Object.values(snapshot.val());
-//   appendItemtoComponentsListEl(componentValue);
-//   clearInputValue();
-// });
+onValue(componentsListInDB, function (snapshot) {
+  let componentsArray = Object.values(snapshot.val());
+  //   clearComponentsListEl();
+
+  for (let i = 0; i < componentsArray.length; i++) {
+    let currentComponent = componentsArray[i];
+    appendItemtoComponentsListEl(currentComponent);
+  }
+});
 
 function appendItemtoComponentsListEl(item) {
   componentsListEl.innerHTML += `<li>${item}</li>`;
@@ -37,3 +43,7 @@ function appendItemtoComponentsListEl(item) {
 function clearInputValue() {
   inputFieldEl.value = "";
 }
+
+// function clearComponentsListEl() {
+//   componentsListEl.innerHTML = "";
+// }

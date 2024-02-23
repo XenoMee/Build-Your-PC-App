@@ -17,9 +17,13 @@ const database = getDatabase(app);
 const componentsListInDB = ref(database, "ComponentsList");
 
 const inputFieldEl = document.getElementById("component-type");
+const componentNameEl = document.getElementById("component-name");
 const addComponentBtnEl = document.getElementById("add-btn");
 const componentsListEl = document.querySelector(".components-list");
 const componentsTitleEl = document.querySelector(".components-title");
+const quantityEl = document.querySelector(".quantity");
+const quantityMinusBtn = document.querySelector(".btn--minus");
+const quantitPlusBtn = document.querySelector(".btn--plus");
 addComponentBtnEl.addEventListener("click", function () {
   let inputValue = inputFieldEl.value;
   if (inputValue !== "") {

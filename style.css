@@ -94,7 +94,7 @@ body {
 
 /* Layout */
 .container {
-  /* max-width: 50rem; */
+  max-width: 50rem;
   background-color: var(--clr-primary-900);
   text-align: center;
   border-radius: 1rem;

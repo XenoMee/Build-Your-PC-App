@@ -77,6 +77,7 @@ body {
   font-family: var(--font-family-base);
   font-weight: var(--fw-regular);
   font-size: var(--fs-500);
+  padding: 1rem;
   user-select: none;
 
   display: grid;

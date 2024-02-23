@@ -31,10 +31,10 @@ onValue(componentsListInDB, function (snapshot) {
   clearComponentsListEl();
 
   for (let i = 0; i < componentsArray.length; i++) {
-    // let currentComponent = componentsArray[i];
-    // let currentComponentId = currentComponent[0];
-    // let currentComponentValue = currentComponent[1];
-    // appendItemtoComponentsListEl(currentComponentValue);
+    let currentComponent = componentsArray[i];
+    let currentComponentId = currentComponent[0];
+    let currentComponentValue = currentComponent[1];
+    appendItemtoComponentsListEl(currentComponentValue);
   }
 });
 

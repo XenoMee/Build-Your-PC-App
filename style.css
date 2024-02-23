@@ -123,12 +123,12 @@ body {
 /* .details {
   flex-flow: column wrap;
   gap: 1rem;
-}
+} */
 
 .quantity {
   justify-content: center;
-  gap: 1rem;
-} */
+  /* gap: 1rem; */
+}
 
 .btn {
   border: none;

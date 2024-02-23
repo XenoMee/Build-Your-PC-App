@@ -4,6 +4,7 @@ import {
   ref,
   push,
   onValue,
+  remove,
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
 
 const appSettings = {
@@ -34,14 +35,23 @@ onValue(componentsListInDB, function (snapshot) {
     let currentComponent = componentsArray[i];
     let currentComponentId = currentComponent[0];
     let currentComponentValue = currentComponent[1];
-    appendItemtoComponentsListEl(currentComponentValue);
+    appendItemtoComponentsListEl(currentComponent);
   }
 });
 
 function appendItemtoComponentsListEl(item) {
+  let itemValue = item[1];
+
   let newEl = document.createElement("li");
-  newEl.textContent = item;
+  newEl.textContent = itemValue;
   componentsListEl.append(newEl);
+}
+
+function removeItemfromComponentsListEl(item) {
+  let itemId = item[0];
+
+  let exactLocationOfItemInDB = ref(database, `ComponentsList/${itemId}`);
+  remove(exactLocationOfItemInDB);
 }
 
 function clearInputValue() {

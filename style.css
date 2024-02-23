@@ -120,6 +120,16 @@ body {
   text-align: center;
 }
 
+/* .details {
+  flex-flow: column wrap;
+  gap: 1rem;
+}
+
+.quantity {
+  justify-content: center;
+  gap: 1rem;
+} */
+
 .btn {
   border: none;
   background-image: var(--gradient-primary);

@@ -40,8 +40,6 @@ onValue(componentsListInDB, function (snapshot) {
 
     for (let i = 0; i < componentsArray.length; i++) {
       let currentComponent = componentsArray[i];
-      let currentComponentId = currentComponent[0];
-      let currentComponentValue = currentComponent[1];
       appendItemtoComponentsListEl(currentComponent);
     }
   } else {

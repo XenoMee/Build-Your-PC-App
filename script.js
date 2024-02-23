@@ -2,6 +2,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebas
 import {
   getDatabase,
   ref,
+  push,
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
 
 const appSettings = {
@@ -16,5 +17,6 @@ const componentsListInDB = ref(database, "ComponentsList");
 const inputFieldEl = document.getElementById("input-field");
 const addComponentBtnEl = document.getElementById("add-btn");
 addComponentBtnEl.addEventListener("click", function () {
-  //   let inputValue = inputFieldEl.value;
+  let inputValue = inputFieldEl.value;
+  push(componentsListInDB, inputValue);
 });

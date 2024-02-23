@@ -21,23 +21,19 @@ const componentNameEl = document.getElementById("component-name");
 const addComponentBtnEl = document.getElementById("add-btn");
 const componentsListEl = document.querySelector(".components-list");
 const componentsTitleEl = document.querySelector(".components-title");
-const quantityEl = document.querySelector(".quantity");
+const quantityNumberEl = document.querySelector(".quantity-number");
 const quantityMinusBtn = document.querySelector(".btn--minus");
 const quantitPlusBtn = document.querySelector(".btn--plus");
 
-const ComponentObject = {
+let ComponentObject = {
   type: "",
   name: "",
   quantity: "",
 };
 
 addComponentBtnEl.addEventListener("click", function () {
-  let componentTypeValue = componentTypeEl.value;
-  let componentNameValue = componentNameEl.value;
-  if (componentTypeValue !== "" && componentNameValue !== "") {
-    push(componentListInDB, componentTypeValue);
-    resetInputValue();
-  } else return;
+  addComponent();
+  resetInputValue();
 });
 
 onValue(componentListInDB, function (snapshot) {
@@ -72,7 +68,7 @@ function appendItemtoComponentsListEl(item) {
   componentsListEl.append(newLiEl);
 }
 
-const resetInputValue = function () {
+const resetInputValue = () => {
   componentTypeEl.value = "";
   componentNameEl.value = "";
   quantityEl.textContent = 0;
@@ -89,4 +85,23 @@ function displayComponentListTitle() {
 
 function createNewElement(element) {
   return document.createElement(element);
+}
+
+function addComponent() {
+  let componentTypeValue = componentTypeEl.value;
+  let componentNameValue = componentNameEl.value;
+  let componentQuantityValue = quantityNumberEl.textContent;
+
+  if (
+    componentTypeValue !== "" &&
+    componentNameValue !== "" &&
+    componentQuantityValue !== 0
+  ) {
+    ComponentObject = {
+      type: componentTypeValue,
+      name: componentNameValue,
+      quantity: componentQuantityValue,
+    };
+    push(componentListInDB, ComponentObject);
+  } else return;
 }

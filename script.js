@@ -40,16 +40,20 @@ onValue(componentsListInDB, function (snapshot) {
 });
 
 function appendItemtoComponentsListEl(item) {
+  let itemID = item[0];
   let itemValue = item[1];
 
   let newEl = document.createElement("li");
   newEl.textContent = itemValue;
+
+  newEl.addEventListener("click", function () {
+    removeItemfromComponentsListEl(itemID);
+  });
+
   componentsListEl.append(newEl);
 }
 
-function removeItemfromComponentsListEl(item) {
-  let itemId = item[0];
-
+function removeItemfromComponentsListEl(itemId) {
   let exactLocationOfItemInDB = ref(database, `ComponentsList/${itemId}`);
   remove(exactLocationOfItemInDB);
 }

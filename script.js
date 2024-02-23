@@ -16,7 +16,7 @@ const app = initializeApp(appSettings);
 const database = getDatabase(app);
 const componentsListInDB = ref(database, "ComponentsList");
 
-const inputFieldEl = document.getElementById("input-field");
+const inputFieldEl = document.getElementById("component-type");
 const addComponentBtnEl = document.getElementById("add-btn");
 const componentsListEl = document.querySelector(".components-list");
 const componentsTitleEl = document.querySelector(".components-title");

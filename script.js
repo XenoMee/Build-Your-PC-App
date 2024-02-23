@@ -19,6 +19,16 @@ const addComponentBtnEl = document.getElementById("add-btn");
 const componentsListEl = document.querySelector(".components-list");
 addComponentBtnEl.addEventListener("click", function () {
   let inputValue = inputFieldEl.value;
+
   push(componentsListInDB, inputValue);
-  componentsListEl.innerHTML += `<li>${inputValue}</li>`;
+  appendItemtoComponentsListEl(inputValue);
+  clearInputValue();
 });
+
+function appendItemtoComponentsListEl(item) {
+  componentsListEl.innerHTML += `<li>${item}</li>`;
+}
+
+function clearInputValue() {
+  inputFieldEl.value = "";
+}

@@ -10,6 +10,7 @@
   --fw-bold: 700;
 
   /* Font size */
+  --fs-300: 0.9375rem;
   --fs-400: 1rem;
   --fs-500: 1.25rem;
   --fs-600: 1.5rem;
@@ -78,7 +79,7 @@ body {
   min-height: 100svh;
   font-family: var(--font-family-base);
   font-weight: var(--fw-regular);
-  font-size: var(--fs-500);
+  font-size: var(--fs-300);
   padding: 1rem;
   user-select: none;
 
@@ -102,7 +103,7 @@ body {
 }
 
 h3 {
-  font-size: var(--fs-400);
+  font-size: var(--fs-500);
   font-weight: var(--fw-regular);
 }
 
@@ -125,6 +126,7 @@ h3 {
 }
 
 input[type="text"] {
+  background-color: #282a3a;
   width: 100%;
   padding: 0.5rem 1rem;
   border: none;
@@ -143,6 +145,10 @@ input[type="text"] {
 }
 
 .quantity-btn {
+  border: none;
+  background-color: #282a3a;
+  padding: 0.4em 0.6em;
+  border-radius: 50%;
   cursor: pointer;
 }
 
@@ -161,21 +167,27 @@ input[type="text"] {
   padding: 0;
   list-style: none;
 
-  grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
   align-items: center;
 }
 
-.components-list li {
-  background-color: #1565c0;
+.components-item {
+  background-color: #282a3a;
   border-radius: 0.5rem;
   padding-block: 0.5rem;
   cursor: pointer;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  align-items: center;
 }
 
 /* Utilty classes*/
 .flex-group {
   display: flex;
   align-items: center;
+}
+
+.grid-flow[data-spacing="small"] {
+  gap: 0.5rem;
 }
 
 .grid-flow {

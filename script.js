@@ -53,36 +53,19 @@ addComponentBtnEl.addEventListener("click", function () {
 
 onValue(componentListInDB, function (snapshot) {
   if (snapshot.exists()) {
-    let componentsArray = Object.entries(snapshot.val());
-    console.log(componentsArray);
+    let componentsArray = Object.entries(snapshot.val()).reverse();
     clearComponentsListEl();
     displayComponentListTitle();
 
     for (let i = 0; i < componentsArray.length; i++) {
       let currentComponent = componentsArray[i];
-      appendItemtoComponentsListEl(currentComponent);
+      renderComponent(currentComponent);
     }
   } else {
     componentsTitleEl.style.display = "none";
     componentsListEl.innerHTML = "No components available";
   }
 });
-
-function appendItemtoComponentsListEl(item) {
-  let itemID = item[0];
-  let itemValue = item[1].type;
-
-  let newLiEl = createNewElement("li");
-  newLiEl.textContent = itemValue;
-
-  newLiEl.addEventListener("click", function () {
-    let exactLocationOfItemInDB = ref(database, `ComponentsTypeList/${itemID}`);
-
-    remove(exactLocationOfItemInDB);
-  });
-
-  componentsListEl.append(newLiEl);
-}
 
 const resetInputValue = () => {
   componentTypeEl.value = "";
@@ -109,15 +92,53 @@ function addComponent() {
   let componentQuantityValue = quantityNumberEl.textContent;
 
   if (
-    componentTypeValue !== "" ||
-    componentNameValue !== "" ||
-    componentQuantityValue !== 0
+    (componentTypeValue !== "" || componentNameValue !== "") &&
+    componentQuantityValue !== "0"
   ) {
     ComponentObject = {
       type: componentTypeValue,
       name: componentNameValue,
-      quantity: componentQuantityValue,
+      quantity: `x${componentQuantityValue}`,
     };
+
     push(componentListInDB, ComponentObject);
   } else return;
+}
+
+function renderComponent(item) {
+  let itemID = item[0];
+  let itemValue = item[1];
+
+  const newComponentItem = createNewElement("li");
+  newComponentItem.classList.add("components-item", "grid-flow");
+  newComponentItem.setAttribute("data-spacing", "small");
+
+  newComponentItem.addEventListener("click", () => {
+    let componentLocationInDB = ref(database, `ComponentsTypeList/${itemID}`);
+    remove(componentLocationInDB);
+  });
+
+  const newComponentTitle = createNewElement("h3");
+  newComponentTitle.textContent = itemValue.type;
+  newComponentTitle.style.textAlign = "start";
+
+  if (newComponentTitle.textContent === "")
+    newComponentTitle.style.display = "none";
+
+  const newComponentDescription = createNewElement("p");
+  newComponentDescription.textContent = itemValue.name;
+
+  if (newComponentDescription.textContent === "")
+    newComponentDescription.style.display = "none";
+
+  const newComponentQuantity = createNewElement("span");
+  newComponentQuantity.textContent = itemValue.quantity;
+  newComponentQuantity.style.textAlign = "end";
+
+  componentsListEl.append(newComponentItem);
+  newComponentItem.append(
+    newComponentTitle,
+    newComponentDescription,
+    newComponentQuantity
+  );
 }

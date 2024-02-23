@@ -147,6 +147,11 @@ body {
 }
 
 /* Utilty classes*/
+.flex-group {
+  display: flex;
+  align-items: center;
+}
+
 .grid-flow {
   display: grid;
   gap: 1rem;

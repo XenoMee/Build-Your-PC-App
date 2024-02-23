@@ -142,6 +142,10 @@ input[type="text"] {
   gap: 1rem;
 }
 
+.quantity-btn {
+  cursor: pointer;
+}
+
 .btn {
   border: none;
   background-image: var(--gradient-primary);

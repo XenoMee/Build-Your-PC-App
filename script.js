@@ -23,13 +23,28 @@ const componentsListEl = document.querySelector(".components-list");
 const componentsTitleEl = document.querySelector(".components-title");
 const quantityNumberEl = document.querySelector(".quantity-number");
 const quantityMinusBtn = document.querySelector(".btn--minus");
-const quantitPlusBtn = document.querySelector(".btn--plus");
+const quantityPlusBtn = document.querySelector(".btn--plus");
 
 let ComponentObject = {
   type: "",
   name: "",
   quantity: "",
 };
+
+quantityPlusBtn.addEventListener("click", function (e) {
+  let quantityNumberValue = Number(quantityNumberEl.textContent);
+  e.preventDefault();
+  quantityNumberValue++;
+  quantityNumberEl.textContent = quantityNumberValue;
+});
+
+quantityMinusBtn.addEventListener("click", function (e) {
+  let quantityNumberValue = Number(quantityNumberEl.textContent);
+  e.preventDefault();
+  quantityNumberValue--;
+  if (quantityNumberValue < 0) return;
+  else quantityNumberEl.textContent = quantityNumberValue;
+});
 
 addComponentBtnEl.addEventListener("click", function () {
   addComponent();
@@ -39,6 +54,7 @@ addComponentBtnEl.addEventListener("click", function () {
 onValue(componentListInDB, function (snapshot) {
   if (snapshot.exists()) {
     let componentsArray = Object.entries(snapshot.val());
+    console.log(componentsArray);
     clearComponentsListEl();
     displayComponentListTitle();
 
@@ -54,7 +70,7 @@ onValue(componentListInDB, function (snapshot) {
 
 function appendItemtoComponentsListEl(item) {
   let itemID = item[0];
-  let itemValue = item[1];
+  let itemValue = item[1].type;
 
   let newLiEl = createNewElement("li");
   newLiEl.textContent = itemValue;
@@ -71,12 +87,12 @@ function appendItemtoComponentsListEl(item) {
 const resetInputValue = () => {
   componentTypeEl.value = "";
   componentNameEl.value = "";
-  quantityEl.textContent = 0;
+  quantityNumberEl.textContent = "0";
 };
 
-function clearComponentsListEl() {
+const clearComponentsListEl = () => {
   componentsListEl.innerHTML = "";
-}
+};
 
 function displayComponentListTitle() {
   componentsTitleEl.style.display = "block";
@@ -93,8 +109,8 @@ function addComponent() {
   let componentQuantityValue = quantityNumberEl.textContent;
 
   if (
-    componentTypeValue !== "" &&
-    componentNameValue !== "" &&
+    componentTypeValue !== "" ||
+    componentNameValue !== "" ||
     componentQuantityValue !== 0
   ) {
     ComponentObject = {

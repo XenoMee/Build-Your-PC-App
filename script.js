@@ -32,7 +32,7 @@ onValue(componentsListInDB, function (snapshot) {
   if (snapshot.exists()) {
     let componentsArray = Object.entries(snapshot.val());
     clearComponentsListEl();
-    componentsTitleEl.textContent = `Tech Specs`;
+    // displayComponentListTitle();
 
     for (let i = 0; i < componentsArray.length; i++) {
       let currentComponent = componentsArray[i];
@@ -41,7 +41,8 @@ onValue(componentsListInDB, function (snapshot) {
       appendItemtoComponentsListEl(currentComponent);
     }
   } else {
-    componentsTitleEl.innerHTML = "No components available";
+    componentsTitleEl.style.display = "none";
+    componentsListEl.innerHTML = "No components available";
   }
 });
 
@@ -53,15 +54,12 @@ function appendItemtoComponentsListEl(item) {
   newEl.textContent = itemValue;
 
   newEl.addEventListener("click", function () {
-    removeItemfromComponentsListEl(itemID);
+    let exactLocationOfItemInDB = ref(database, `ComponentsList/${itemID}`);
+
+    remove(exactLocationOfItemInDB);
   });
 
   componentsListEl.append(newEl);
-}
-
-function removeItemfromComponentsListEl(itemId) {
-  let exactLocationOfItemInDB = ref(database, `ComponentsList/${itemId}`);
-  remove(exactLocationOfItemInDB);
 }
 
 function clearInputValue() {
@@ -71,3 +69,8 @@ function clearInputValue() {
 function clearComponentsListEl() {
   componentsListEl.innerHTML = "";
 }
+
+// function displayComponentListTitle() {
+//   componentsTitleEl.style.display = "block";
+//   componentsTitleEl.textContent = "Tech Specs";
+// }

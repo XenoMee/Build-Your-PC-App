@@ -32,7 +32,7 @@ onValue(componentsListInDB, function (snapshot) {
   if (snapshot.exists()) {
     let componentsArray = Object.entries(snapshot.val());
     clearComponentsListEl();
-    // displayComponentListTitle();
+    displayComponentListTitle();
 
     for (let i = 0; i < componentsArray.length; i++) {
       let currentComponent = componentsArray[i];
@@ -70,7 +70,7 @@ function clearComponentsListEl() {
   componentsListEl.innerHTML = "";
 }
 
-// function displayComponentListTitle() {
-//   componentsTitleEl.style.display = "block";
-//   componentsTitleEl.textContent = "Tech Specs";
-// }
+function displayComponentListTitle() {
+  componentsTitleEl.style.display = "block";
+  componentsTitleEl.textContent = "Tech Specs";
+}

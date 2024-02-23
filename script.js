@@ -16,7 +16,9 @@ const componentsListInDB = ref(database, "ComponentsList");
 
 const inputFieldEl = document.getElementById("input-field");
 const addComponentBtnEl = document.getElementById("add-btn");
+const componentsListEl = document.querySelector(".components-list");
 addComponentBtnEl.addEventListener("click", function () {
   let inputValue = inputFieldEl.value;
   push(componentsListInDB, inputValue);
+  componentsListEl.innerHTML += `<li>${inputValue}</li>`;
 });

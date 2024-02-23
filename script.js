@@ -37,7 +37,9 @@ onValue(componentsListInDB, function (snapshot) {
 });
 
 function appendItemtoComponentsListEl(item) {
-  componentsListEl.innerHTML += `<li>${item}</li>`;
+  let newEl = document.createElement("li");
+  newEl.textContent = item;
+  componentsListEl.append(newEl);
 }
 
 function clearInputValue() {

@@ -19,6 +19,7 @@ const componentsListInDB = ref(database, "ComponentsList");
 const inputFieldEl = document.getElementById("input-field");
 const addComponentBtnEl = document.getElementById("add-btn");
 const componentsListEl = document.querySelector(".components-list");
+const componentsTitleEl = document.querySelector(".components-title");
 addComponentBtnEl.addEventListener("click", function () {
   let inputValue = inputFieldEl.value;
   if (inputValue !== "") {
@@ -28,14 +29,19 @@ addComponentBtnEl.addEventListener("click", function () {
 });
 
 onValue(componentsListInDB, function (snapshot) {
-  let componentsArray = Object.entries(snapshot.val());
-  clearComponentsListEl();
+  if (snapshot.exists()) {
+    let componentsArray = Object.entries(snapshot.val());
+    clearComponentsListEl();
+    componentsTitleEl.textContent = `Tech Specs`;
 
-  for (let i = 0; i < componentsArray.length; i++) {
-    let currentComponent = componentsArray[i];
-    let currentComponentId = currentComponent[0];
-    let currentComponentValue = currentComponent[1];
-    appendItemtoComponentsListEl(currentComponent);
+    for (let i = 0; i < componentsArray.length; i++) {
+      let currentComponent = componentsArray[i];
+      let currentComponentId = currentComponent[0];
+      let currentComponentValue = currentComponent[1];
+      appendItemtoComponentsListEl(currentComponent);
+    }
+  } else {
+    componentsTitleEl.innerHTML = "No components available";
   }
 });
 

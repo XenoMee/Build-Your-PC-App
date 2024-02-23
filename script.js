@@ -12,3 +12,9 @@ const appSettings = {
 const app = initializeApp(appSettings);
 const database = getDatabase(app);
 const componentsListInDB = ref(database, "ComponentsList");
+
+const inputFieldEl = document.getElementById("input-field");
+const addComponentBtnEl = document.getElementById("add-btn");
+addComponentBtnEl.addEventListener("click", function () {
+  //   let inputValue = inputFieldEl.value;
+});

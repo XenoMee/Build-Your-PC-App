@@ -120,10 +120,10 @@ body {
   text-align: center;
 }
 
-/* .details {
+.details {
   flex-flow: column wrap;
   gap: 1rem;
-} */
+}
 
 .quantity {
   justify-content: center;

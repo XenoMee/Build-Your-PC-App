@@ -102,7 +102,7 @@ function addComponent() {
     };
 
     push(componentListInDB, ComponentObject);
-  } else return;
+  } else alert("Please select the number of components!");
 }
 
 function renderComponent(item) {

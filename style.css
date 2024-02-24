@@ -152,6 +152,14 @@ input[type="text"] {
   padding: 0.4em 0.6em;
   border-radius: 50%;
   cursor: pointer;
+  transition: background-color 350ms ease-in-out;
+}
+
+.btn--minus:is(:hover, :focus) {
+  background-color: #b92b27;
+}
+.btn--plus:is(:hover, :focus) {
+  background-color: #1565c0;
 }
 
 .btn {

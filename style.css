@@ -186,10 +186,13 @@ input[type="text"] {
   grid-auto-flow: column;
   grid-auto-columns: 1fr;
   align-items: center;
+  transform: scale(1);
+  transition: transform 350ms ease-in-out;
 }
 
 .components-item:is(:hover, :focus) {
   background-image: var(--gradient-primary);
+  transform: scale(1.05);
 }
 
 /* Utilty classes*/

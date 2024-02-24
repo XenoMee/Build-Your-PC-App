@@ -163,6 +163,12 @@ input[type="text"] {
   border-radius: 0.5rem;
   padding: 0.5rem 2rem;
   cursor: pointer;
+  transform: scale(1);
+  transition: transform 350ms ease-in-out;
+}
+
+.btn:is(:hover, :focus) {
+  transform: scale(1.1);
 }
 
 .components-list {

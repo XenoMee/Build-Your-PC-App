@@ -182,6 +182,10 @@ input[type="text"] {
   align-items: center;
 }
 
+.components-item:is(:hover, :focus) {
+  background-image: var(--gradient-primary);
+}
+
 /* Utilty classes*/
 .flex-group {
   display: flex;
